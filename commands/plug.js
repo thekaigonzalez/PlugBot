@@ -7,7 +7,6 @@ function download(url, out) {
     const request = https.get(url, function(response) {
     response.pipe(file);
     });
-    file.close();
 }
 
 function loadsrc() {
@@ -17,6 +16,7 @@ function loadsrc() {
 }
 
 const REPO_URL = loadsrc()["default"]
+console.log("Default SOURCES: " + REPO_URL)
 module.exports = {
     basic(scl, msgobj, argv) {
         if (argv[0] == "help") {
@@ -25,12 +25,8 @@ module.exports = {
             msgobj.channel.send("`plug remove <package>`")
         } else if (argv[0] == "install") {
             let pck = argv[1];
-            download(REPO_URL + pck + ".tar.gz", "cmd.tar.gz");
-            tar.x("cmd.tar.gz", {
-                path: 'cmd'
-            });
-
-
+            download(REPO_URL + pck + ".tar.gz", "./cmd.tar.gz");
+            tar.extract({cwd: "./cmd"}, "./cmd.tar.gz")
         }
     }
 }
