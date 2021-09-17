@@ -29,4 +29,4 @@ client.on("messageCreate", msg => {
     }
 });
 
-client.login("ODg4NTExMTY2Mjc4NjY4MzE5.YUTwgQ.TA07JfteHi_YNa_sCVvt5Z9vkVA")
+client.login(cfg.tok)
