@@ -3,7 +3,7 @@ const Data = require("./api/PlugBotdata");
 const Logger = require('./lib/Logger');
 const client = new Discord.Client({intents: [Discord.Intents.FLAGS.GUILD_MESSAGES,Discord.Intents.FLAGS.GUILDS]}); // Create client
 const handle = require('./lib/handle')
-
+const cfg = require('./cfg.json');
 client.on("ready", () => {
     new Logger("plugb");
     console.log("hello, Pluggies.");
