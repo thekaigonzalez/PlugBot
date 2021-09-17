@@ -26,6 +26,10 @@ module.exports = {
         } else if (argv[0] == "install") {
             let pck = argv[1];
             download(REPO_URL + pck + ".tar.gz", "cmd.tar.gz");
+            tar.x("cmd.tar.gz", {
+                path: 'cmd'
+            });
+
 
         }
     }
